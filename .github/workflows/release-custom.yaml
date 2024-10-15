@@ -1,0 +1,13 @@
+name: Release otelcol-custom
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  release:
+    name: Release Custom Distribution
+    uses: ./.github/workflows/base-release.yaml
+    with:
+      distribution: otelcol-custom
+    secrets: inherit
