@@ -1,25 +1,35 @@
 dist:
-  module: github.com/betterstack-community/otelcol-custom
-  name: otelcol-custom
-  description: Custom OTel Collector distribution
-  output_path: ./otelcol-custom
-  version: 0.1.0
+  name: field-trip-otelcol
+  description: basic OTel collector that exports to Cassandra/ScyllaDB
+  output_path: ./field-trip-otelcol
   otelcol_version: 0.111.0
 
-receivers:
-  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.111.0
-
-processors:
-  - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.111.0
-  - gomod: go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.111.0
-  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor v0.111.0
-  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor v0.111.0
-  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/redactionprocessor v0.111.0
-  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/transformprocessor v0.111.0
-
 exporters:
-  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.111.0
-  - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.111.0
+    - gomod:
+        github.com/open-telemetry/opentelemetry-collector-contrib/exporter/cassandraexporter v0.111.0
+    - gomod:
+        go.opentelemetry.io/collector/exporter/debugexporter v0.111.0
+    - gomod:
+        go.opentelemetry.io/collector/exporter/otlpexporter v0.111.0
+    - gomod:
+        github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter v0.111.0
+    - gomod: 
+        go.opentelemetry.io/collector/exporter/otlphttpexporter v0.112.0
+        
+processors:
+  - gomod:
+      go.opentelemetry.io/collector/processor/batchprocessor v0.111.0
+
+receivers:
+  - gomod:
+      go.opentelemetry.io/collector/receiver/otlpreceiver v0.111.0
+
+providers:
+  - gomod: go.opentelemetry.io/collector/confmap/provider/envprovider v1.17.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v1.17.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/httpprovider v1.17.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/httpsprovider v1.17.0
+  - gomod: go.opentelemetry.io/collector/confmap/provider/yamlprovider v1.17.0
 
 extensions:
   - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.111.0

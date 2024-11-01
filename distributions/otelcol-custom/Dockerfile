@@ -1,7 +1,7 @@
 # Stage 1: Builder
 FROM golang:1.23-bookworm AS builder
 
-ARG OTEL_VERSION=0.111.0
+ARG OTEL_VERSION=0.112.0
 
 WORKDIR /build
 
@@ -20,13 +20,13 @@ FROM cgr.dev/chainguard/static:latest
 WORKDIR /app
 
 # Copy the generated collector binary from the builder stage
-COPY --from=builder /build/otelcol-custom .
+COPY --from=builder /build/field-trip-otelcol .
 
 # Copy the Collector configuration file
 COPY config.yaml .
 
 # Expose necessary ports
-EXPOSE 4317/tcp 4318/tcp 13133/tcp
+EXPOSE 4318/tcp 13133/tcp
 
 # Set the default command
-CMD ["/app/otelcol-custom", "--config=config.yaml"]
+CMD ["/app/field-trip-otelcol", "--config=config.yaml"]
