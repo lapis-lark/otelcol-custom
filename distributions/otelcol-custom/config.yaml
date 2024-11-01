@@ -11,7 +11,7 @@ exporters:
   debug:
     verbosity: detailed
   cassandra:
-    endpoint: scylla:9042
+    dsn: scylla:9042
 
 extensions:
   health_check:
