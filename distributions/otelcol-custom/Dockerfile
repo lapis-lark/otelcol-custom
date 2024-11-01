@@ -29,4 +29,4 @@ COPY config.yaml .
 EXPOSE 4318/tcp 13133/tcp
 
 # Set the default command
-CMD ["/build/field-trip-otelcol", "--config=config.yaml"]
+CMD ["/app/field-trip-otelcol", "--config=config.yaml"]
