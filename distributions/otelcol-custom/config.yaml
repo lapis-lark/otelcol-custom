@@ -11,7 +11,9 @@ exporters:
   debug:
     verbosity: detailed
   cassandra:
-    dsn: scylla:9042
+    dsn: scylla
+    port: 9042
+    trace_table: "spans"
 
 extensions:
   health_check:
