@@ -14,6 +14,8 @@ exporters:
     dsn: scylla
     port: 9042
     trace_table: "spans"
+    compression:
+      algorithm: "ZstdCompressor"
 
 extensions:
   health_check:
