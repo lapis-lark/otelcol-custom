@@ -15,7 +15,8 @@ exporters:
     port: 9042
     trace_table: "spans"
     compression:
-      algorithm: "ZstdCompressor"
+      sstable_compression: true
+      algorithm: "LZ4Compressor"
 
 extensions:
   health_check:
