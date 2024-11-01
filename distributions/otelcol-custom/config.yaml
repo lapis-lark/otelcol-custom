@@ -6,17 +6,12 @@ receivers:
         
 processors:
   batch:
-    send_batch_size: 1000
-    send_batch_max_size: 1000
-    timeout: 10s
-
+  
 exporters:
   debug:
     verbosity: detailed
-  file:
-    path: ./data/traces.json
   cassandra:
-    dsn: 127.0.0.1
+    endpoint: scylla:9042
 
 extensions:
   health_check:
