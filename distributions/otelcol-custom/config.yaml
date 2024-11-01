@@ -11,11 +11,10 @@ exporters:
   debug:
     verbosity: detailed
   cassandra:
-    dsn: scylla
+    dsn: cassandra
     port: 9042
     trace_table: "spans"
     compression:
-      sstable_compression: true
       algorithm: "LZ4Compressor"
 
 extensions:
