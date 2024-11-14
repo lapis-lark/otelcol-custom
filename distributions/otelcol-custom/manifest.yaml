@@ -6,7 +6,7 @@ dist:
 
 exporters:
     - gomod:
-        github.com/open-telemetry/opentelemetry-collector-contrib/exporter/cassandraexporter v0.112.0
+        github.com/lapis-lark/otel-cassandra-exporter-rework v0.112.0
     - gomod:
         go.opentelemetry.io/collector/exporter/debugexporter v0.112.0
     - gomod:
