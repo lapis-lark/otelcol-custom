@@ -20,7 +20,7 @@ FROM cgr.dev/chainguard/static:latest
 WORKDIR /app
 
 # Copy the generated collector binary from the builder stage
-COPY --from=builder /build/field-trip-otelcol .
+COPY --from=builder /build/avocet-otelcol .
 
 # Copy the Collector configuration file
 COPY config.yaml .
@@ -29,4 +29,4 @@ COPY config.yaml .
 EXPOSE 4318/tcp 13133/tcp
 
 # Set the default command
-CMD ["/app/field-trip-otelcol", "--config=config.yaml"]
+CMD ["/app/avocet-otelcol", "--config=config.yaml"]

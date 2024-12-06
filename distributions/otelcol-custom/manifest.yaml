@@ -1,7 +1,7 @@
 dist:
-  name: estuary-collector
+  name: avocet-collector
   description: basic OTel collector that exports to Cassandra
-  output_path: ./estuary-otelcol
+  output_path: ./avocet-otelcol
   otelcol_version: 0.112.0
 
 exporters:
